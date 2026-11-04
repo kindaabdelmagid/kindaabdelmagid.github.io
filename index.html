@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kinda — Senior Video Editor</title>
+<meta name="description" content="Senior Video Editor — documentary storytelling, YouTube & podcast production, short-form content. Selected work.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0c;--bg2:#121214;--line:#26262a;--text:#f2efe9;--mute:#9b978f;--accent:#e8a33d;--accent-ink:#1a1204;
+--serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--gut:clamp(20px,5vw,72px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{padding:0 var(--gut);max-width:1400px;margin:0 auto}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+
+header{padding:clamp(56px,9vw,110px) 0 clamp(36px,5vw,60px);border-bottom:1px solid var(--line)}
+header .top{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline;margin-bottom:28px}
+h1{font-family:var(--serif);font-weight:300;font-size:clamp(44px,8vw,112px);line-height:.95;letter-spacing:-.03em}
+h1 em{font-style:italic;color:var(--accent)}
+header p.lead{margin-top:22px;max-width:640px;color:#cfcbc3;font-size:clamp(16px,1.4vw,18px)}
+.mail{color:var(--accent);border-bottom:1px solid var(--accent)}
+
+main{padding:clamp(40px,6vw,80px) 0}
+.sub-label{margin:0 0 22px;display:flex;align-items:center;gap:16px}
+.sub-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.sub-label.gap{margin-top:64px}
+
+.long{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.short{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{display:block;cursor:pointer;background:none;border:0;text-align:left;color:inherit;font:inherit}
+.thumb{position:relative;overflow:hidden;border-radius:10px;background:var(--bg2);border:1px solid var(--line)}
+.long .thumb{aspect-ratio:16/9}
+.short .thumb{aspect-ratio:9/16}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card:hover .thumb img{transform:scale(1.05)}
+.play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(transparent 55%,rgba(0,0,0,.7))}
+.play i{width:60px;height:60px;border-radius:50%;background:rgba(11,11,12,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;transition:background .25s,transform .25s}
+.play i::after{content:"";border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.card:hover .play i{background:var(--accent);transform:scale(1.1)}
+.card:hover .play i::after{border-left-color:var(--accent-ink)}
+.meta{display:flex;justify-content:space-between;gap:12px;margin-top:12px;align-items:baseline}
+.meta h3{font-family:var(--serif);font-weight:400;font-size:clamp(17px,1.6vw,22px);line-height:1.2}
+.short .meta h3{font-size:16px}
+
+footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:26px var(--gut);border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+
+.modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:rgba(5,5,6,.93);padding:20px}
+.modal.open{display:grid}
+.frame{position:relative;width:min(1100px,100%);aspect-ratio:16/9;background:#000;border-radius:10px;overflow:hidden}
+.frame.v{aspect-ratio:9/16;width:auto;height:min(88vh,820px)}
+.frame iframe{width:100%;height:100%;border:0}
+.close{position:absolute;top:18px;right:22px;background:none;border:1px solid var(--line);color:var(--text);width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer}
+.close:hover{border-color:var(--accent);color:var(--accent)}
+
+@media (max-width:1000px){.short{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:720px){.long{grid-template-columns:1fr}.short{grid-template-columns:repeat(2,1fr);gap:14px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="top">
+      <span class="mono">Portfolio</span>
+      <a class="mono mail" href="mailto:kindaabdelmagid1@gmail.com">kindaabdelmagid1@gmail.com</a>
+    </div>
+    <h1>Kinda,<br><em>Senior</em> Video Editor</h1>
+    <p class="lead">Documentary storytelling · YouTube &amp; podcast production · short-form content. 6+ years turning raw footage into compelling stories for international clients.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="mono sub-label">Long form · Podcasts &amp; YouTube</p>
+    <div class="long" id="long"></div>
+    <p class="mono sub-label gap">Short form · Reels, Shorts &amp; TikToks</p>
+    <div class="short" id="short"></div>
+  </div>
+</main>
+
+<footer><span>© <span id="yr"></span> Kinda — Senior Video Editor</span><a class="mail" href="mailto:kindaabdelmagid1@gmail.com">Get in touch</a></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Video player">
+  <button class="close" id="close" aria-label="Close">✕</button>
+  <div class="frame" id="frame"></div>
+</div>
+
+<script>
+const LONG=[
+ {id:"1LSPmXm0h-ZobYoZvHDVSvD_WCbD3nu5m",t:"Legacy Makers_Bryan Casella",k:"Documentary"},
+ {id:"1zVmM0bUPzsnu90VlompoqYCKgpQIbu8W",t:"Legacy Makers_Holly J Moore",k:"Documentary"},
+ {yt:"https://youtu.be/h-QQq510mlo",t:"5 Years With Dave Ramsey. I'm Done Being Quiet (Someone Has To Say It!)",k:"Podcast"},
+ {yt:"https://youtu.be/Swm0-IF0xCg",t:"Financial Advisor Warns: 7 Money Lies You Still Believe (That's Keeping You Broke In 2026!)",k:"Podcast"}
+];
+const SHORT=[
+ {id:"1sWHBrleyYOq4MEEjAdPQJf4VCvJEhn7N",t:"Annelise McCarthy",k:"Reel"},
+ {id:"1MMW_wJeAMPVnJeCVLJZ5m9Xeij8hJsHa",t:"Base360",k:"Reel"},
+ {id:"1TCEDC-ghBnlfM2zLS2PX1uSu4_aYMvFt",t:"Holly J Moore",k:"Reel"},
+ {id:"1tR4n5p489IEtUA2k1HS_EYhcGGCYVoKK",t:"Samantha Christine",k:"Reel"},
+ {id:"1EbuNYtPAQ-8H_dEdTiuD5JyvjLC5PoXO",t:"Let's Talk",k:"Reel"},
+ {id:"1TlxXmnh0DmpEEYmLLnKOoaYf_uS_8No0",t:"Colorado Business Podcast",k:"Reel"},
+ {id:"1LyG0pkT8rVFBoMkWfDPtyIkXkufqu4J-",t:"The Business Growth Show",k:"Reel"},
+ {id:"1OIIuRpG33lwsvFGO1qPV-1UpVlnzdNb_",t:"Bryan Casella",k:"Reel"},
+ {id:"17BNI8PZFDeLhcdPQN3asDyLhmfccUUam",t:"Anthony O'Neal",k:"Reel"},
+ {id:"1SS67eACPpn7jcb504N9phvZrPO9TXcXa",t:"The Minimalists",k:"Reel"},
+ {id:"12MFJgmfQBDGtZAfS7U0Jprfmt2uruaBq",t:"Millionaire in 2025",k:"Reel"},
+ {id:"10BpmBWCllNM1mG-0xlqCOS7dnwfmYF7M",t:"What $200 a Month Does in 30 Years",k:"Reel"}
+];
+/* To add a YouTube video, add a line like:
+   {yt:"https://www.youtube.com/watch?v=XXXXXXXXXXX", t:"Title", k:"YouTube"}
+   (watch, youtu.be and /shorts/ links all work) to LONG or SHORT above. */
+const ytId=u=>{const m=String(u).match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{11})/);return m?m[1]:u};
+const esc=s=>s.replace(/"/g,'&quot;');
+const card=(v,vert)=>{
+ const src=v.yt?`yt:${ytId(v.yt)}`:`dr:${v.id}`;
+ const img=v.yt?`https://i.ytimg.com/vi/${ytId(v.yt)}/hqdefault.jpg`:`https://drive.google.com/thumbnail?id=${v.id}&sz=w800`;
+ return `<button class="card" data-src="${src}" data-v="${vert?1:0}">
+ <div class="thumb"><img loading="lazy" src="${img}" alt="${esc(v.t)}" referrerpolicy="no-referrer"><div class="play"><i></i></div></div>
+ <div class="meta"><h3>${v.t}</h3><span class="mono">${v.k}</span></div></button>`};
+long.innerHTML=LONG.map(v=>card(v,0)).join('');
+short.innerHTML=SHORT.map(v=>card(v,1)).join('');
+
+const modal=document.getElementById('modal'),frame=document.getElementById('frame');
+function openV(src,v){const [type,id]=src.split(':');const url=type==='yt'?`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`:`https://drive.google.com/file/d/${id}/preview`;frame.className='frame'+(v?' v':'');frame.innerHTML=`<iframe src="${url}" allow="autoplay; fullscreen; encrypted-media" allowfullscreen></iframe>`;modal.classList.add('open');document.body.style.overflow='hidden'}
+function closeV(){modal.classList.remove('open');frame.innerHTML='';document.body.style.overflow=''}
+document.addEventListener('click',e=>{const c=e.target.closest('.card');if(c)openV(c.dataset.src,c.dataset.v==='1')});
+document.getElementById('close').onclick=closeV;
+modal.addEventListener('click',e=>{if(e.target===modal)closeV()});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeV()});
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
