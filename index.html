@@ -90,8 +90,8 @@ footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;paddin
 
 <script>
 const LONG=[
- {id:"1LSPmXm0h-ZobYoZvHDVSvD_WCbD3nu5m",t:"Legacy Makers_Bryan Casella",k:"Documentary"},
- {id:"1zVmM0bUPzsnu90VlompoqYCKgpQIbu8W",t:"Legacy Makers_Holly J Moore",k:"Documentary"},
+ {id:"1LSPmXm0h-ZobYoZvHDVSvD_WCbD3nu5m",img:"legacy-bryan.jpg",t:"Legacy Makers_Bryan Casella",k:"Documentary"},
+ {id:"1zVmM0bUPzsnu90VlompoqYCKgpQIbu8W",img:"legacy-holly.jpg",t:"Legacy Makers_Holly J Moore",k:"Documentary"},
  {yt:"https://youtu.be/h-QQq510mlo",t:"5 Years With Dave Ramsey. I'm Done Being Quiet (Someone Has To Say It!)",k:"Podcast"},
  {yt:"https://youtu.be/Swm0-IF0xCg",t:"Financial Advisor Warns: 7 Money Lies You Still Believe (That's Keeping You Broke In 2026!)",k:"Podcast"}
 ];
@@ -116,7 +116,7 @@ const ytId=u=>{const m=String(u).match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-
 const esc=s=>s.replace(/"/g,'&quot;');
 const card=(v,vert)=>{
  const src=v.yt?`yt:${ytId(v.yt)}`:`dr:${v.id}`;
- const img=v.yt?`https://i.ytimg.com/vi/${ytId(v.yt)}/hqdefault.jpg`:`https://drive.google.com/thumbnail?id=${v.id}&sz=w800`;
+ const img=v.img?v.img:v.yt?`https://i.ytimg.com/vi/${ytId(v.yt)}/hqdefault.jpg`:`https://drive.google.com/thumbnail?id=${v.id}&sz=w800`;
  return `<button class="card" data-src="${src}" data-v="${vert?1:0}">
  <div class="thumb"><img loading="lazy" src="${img}" alt="${esc(v.t)}" referrerpolicy="no-referrer"><div class="play"><i></i></div></div>
  <div class="meta"><h3>${v.t}</h3><span class="mono">${v.k}</span></div></button>`};
