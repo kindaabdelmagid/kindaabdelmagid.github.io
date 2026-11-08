@@ -129,8 +129,6 @@ function openV(src,v){const [type,id]=src.split(':');const url=type==='yt'?`http
 function closeV(){modal.classList.remove('open');frame.innerHTML='';document.body.style.overflow=''}
 document.addEventListener('click',e=>{const c=e.target.closest('.card');if(!c)return;
  const [type,id]=c.dataset.src.split(':');
- /* Drive's embedded player stacks its controls over the phone's own; on touch screens open Drive's full viewer instead */
- if(type==='dr'&&matchMedia('(pointer:coarse)').matches){window.open('https://drive.google.com/file/d/'+id+'/view','_blank','noopener');return}
  openV(c.dataset.src,c.dataset.v==='1')});
 document.getElementById('close').onclick=closeV;
 modal.addEventListener('click',e=>{if(e.target===modal)closeV()});
